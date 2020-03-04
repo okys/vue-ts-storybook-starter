@@ -31,6 +31,7 @@ module.exports = {
         arrowParens: 'avoid',
       },
     ],
+    'no-var-requires': 'off'
   },
   overrides: [
     {
