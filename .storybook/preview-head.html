@@ -1,0 +1,15 @@
+<script>
+  // storybook이 emotion.js 를 사용함으로 발생하는 이슈. 
+  // issue: https://github.com/storybookjs/storybook/issues/6998
+  ['log', 'info', 'warn', 'error'].forEach(function (methodName) {
+    var oldMethod = window.console[methodName];
+    window.console[methodName] = function () {
+      var all = Array.from(arguments).join(' ');
+      if (
+        all.indexOf('":first-child" is potentially unsafe') >= 0 ||
+        all.indexOf('Please update the following components: Draggable') >= 0
+      ) return;
+      oldMethod.apply(window.console, arguments);
+    };
+  });
+</script>

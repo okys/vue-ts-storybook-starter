@@ -15,7 +15,8 @@ module.exports = async ({ config, mode }) => {
       }
     ],
   });
-  //config.module.rules.push({ test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] });
+
+  config.module.rules.push({ test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] });
 
   config.plugins.push(new ForkTsCheckerWebpackPlugin());
 
