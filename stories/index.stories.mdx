@@ -1,0 +1,19 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import MyButton from './MyButton.vue';
+
+<Meta title="Design System/MyButton" />
+
+# MyButton Test
+
+  <Story name="test">
+    {{
+      components: { MyButton },
+      template: '<my-button>test</my-button>'
+    }}
+  </Story>
+
+
+## Props
+<Props of={MyButton} />
+
+
