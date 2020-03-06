@@ -5,8 +5,7 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-import 'normalize.css/normalize.css';
-import '@/assets/scss/base.scss';
+import '@/assets/scss/styles.scss';
 
 new Vue({
 	router,
