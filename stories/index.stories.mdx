@@ -1,19 +1,19 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import MyButton from './MyButton.vue';
+import SvgView from '../src/views/SvgView.vue';
 
-<Meta title="Design System/MyButton" />
+<Meta title="Component/SVG" />
 
-# MyButton Test
+# SVG
 
-  <Story name="test">
-    {{
-      components: { MyButton },
-      template: '<my-button>test</my-button>'
-    }}
-  </Story>
+<Story name="view">
+  {{
+    components: { SvgView },
+    template: '<svg-view />'
+  }}
+</Story>
 
 
 ## Props
-<Props of={MyButton} />
+<Props of={SvgView} />
 
 

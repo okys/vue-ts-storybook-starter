@@ -1,3 +1,6 @@
 // global
-@import './reset';
+@import 'reset';
+@import 'variables';
 
+// css-reset
+@include css-reset;

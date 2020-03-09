@@ -1,14 +1,17 @@
 <template>
 	<div class="home">
 		<img alt="Vue logo" src="../assets/logo.png" />
+		<wk-button>test</wk-button>
 	</div>
 </template>
 
 <script>
-// @ is an alias to /src
+import WkButton from '@/components/WkButton';
 
 export default {
 	name: 'Home',
-	components: {},
+	components: {
+		WkButton,
+	},
 };
 </script>
