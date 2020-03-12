@@ -13,4 +13,7 @@ addParameters({
   viewport: {
     viewports: INITIAL_VIEWPORTS
   },
+  docs: {
+    inlineStories: true
+  }
 })

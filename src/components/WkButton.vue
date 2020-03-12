@@ -7,6 +7,7 @@
 <script lang="ts">
 import { defineComponent, computed } from '@vue/composition-api';
 
+// 주석 작성하면?
 export default defineComponent({
 	setup(props, { listeners, emit }) {
 		const buttonListeners = computed(() => {

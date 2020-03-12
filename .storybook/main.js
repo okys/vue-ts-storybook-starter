@@ -2,7 +2,7 @@ module.exports = {
   stories: ['../stories/**/*.stories.(js|ts|mdx)'],
   addons: [
     '@storybook/addon-actions/register',
-    '@storybook/addon-links',
+    '@storybook/addon-links/register',
     '@storybook/addon-viewport/register',
     '@storybook/addon-knobs/register',
     {

@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import SearchSVG from '../assets/search.svg?inline';
-import SearchSvgExternal from '@/assets/icon_search.svg';
+import SearchSVG from '../assets/svg/icon-search.svg?inline';
+import SearchSvgExternal from '@/assets/svg/icon-search.svg';
 
 export default {
 	components: {

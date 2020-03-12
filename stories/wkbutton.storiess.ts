@@ -13,6 +13,7 @@ export const actionsData = {
 
 const wkButtonTemplate = `<wk-button @click="test">test</wk-button>`;
 
+// default
 export const Default = () => ({
 	components: { WkButton },
 	template: wkButtonTemplate,
@@ -23,6 +24,7 @@ export const Default = () => ({
 	},
 });
 
+// hover
 export const hover = () => ({
 	components: { WkButton },
 	template: wkButtonTemplate,
