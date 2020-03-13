@@ -5,6 +5,7 @@ module.exports = {
     '@storybook/addon-links/register',
     '@storybook/addon-viewport/register',
     '@storybook/addon-knobs/register',
+    'storybook-addon-deps/preset',
     {
       name: '@storybook/addon-docs/preset',
       options: {

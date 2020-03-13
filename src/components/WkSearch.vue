@@ -1,34 +1,34 @@
 <template>
 	<div class="wk--search is--typing">
+		<label :for="uid" class="wk--search__label">검색</label>
 		<input
+			:id="uid"
 			type="text"
 			class="wk--input-text"
+			placeholder="검색어를 입력해주세요."
 			v-on="inputListeners"
 			v-bind="attrs"
 			v-model="innerModel"
 		/>
-		<icon-search />
-		<button type="button" class="wk--search-close" @click="onClear">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				height="24"
-				viewBox="0 0 24 24"
-				width="24"
-				class="icon--close"
-			>
-				<path
-					d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-				/>
-				<path d="M0 0h24v24H0z" fill="none" />
-			</svg>
+		<IconSearch />
+		<button
+			v-show="isClear"
+			type="button"
+			class="wk--search-close"
+			aria-label="검색어 삭제"
+			title="검색어 삭제"
+			@click="onClear"
+		>
+			<IconCancel />
 		</button>
 	</div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, computed, ref, watch } from '@vue/composition-api';
 import IconSearch from '@/assets/svg/icon-search.svg?inline';
 import IconCancel from '@/assets/svg/icon-cancel.svg?inline';
+import useUid from '@/composables/useUid.ts';
 
 export default defineComponent({
 	name: '',
@@ -37,46 +37,49 @@ export default defineComponent({
 		IconCancel,
 	},
 	props: {
+		id: {
+			type: String,
+			default: undefined,
+		},
 		initialValue: {
 			type: String,
 			default: '',
 		},
-		testProps: {
-			type: String,
-			default: 'test',
-		},
 	},
-	setup(props, { listeners, emit, attrs }) {
-		const innerModel = ref('');
+	setup({ id, initialValue }, { listeners, emit, attrs }) {
+		const innerModel = ref(initialValue);
+		const isClear = ref(initialValue ? initialValue.length : false);
 		const inputListeners = computed(() => {
 			return {
 				...listeners,
-				input: event => emit('input', innerModel),
+				input: () => emit('input', innerModel),
 			};
 		});
+		const { uid } = useUid(id);
 
 		function onClear() {
 			if (!innerModel.value) return;
 			innerModel.value = '';
 		}
 
+		watch(innerModel, () => {
+			isClear.value = innerModel ? innerModel.value.length : false;
+		});
+
 		return {
 			inputListeners,
 			attrs,
 			innerModel,
+			isClear,
 			onClear,
+			uid,
 		};
 	},
 });
 </script>
 
 <style lang="scss" scoped>
-/**
-1. Flow
-[] 검색어 입력
-[] 검색 실행
-*/
-
+@import '../assets/scss/styles.scss';
 svg {
 	fill: currentColor;
 }
@@ -103,6 +106,10 @@ button {
 
 .wk--search {
 	position: relative;
+}
+
+.wk--search__label {
+	@include visually-hidden();
 }
 
 // input element

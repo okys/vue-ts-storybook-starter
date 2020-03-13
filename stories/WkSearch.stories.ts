@@ -3,10 +3,15 @@ import WkSearch from '../src/components/WkSearch.vue';
 
 export default {
 	title: 'WkSearch',
+	component: WkSearch,
 	excludeStories: /.*Data$/,
 };
 
-const template = `<div class=""><wk-search v-model="searchKeyword" @input="onTyping"></wk-search></div>`;
+export const actionsData = {
+	onTyping: action('onTyping'),
+};
+
+const template = `<wk-search v-model="searchKeyword" @input="onTyping"></wk-search>`;
 
 // default
 export const Before = () => ({
@@ -17,35 +22,24 @@ export const Before = () => ({
 			searchKeyword: '',
 		};
 	},
-	methods: {
-		onTyping(e) {
-			const { value } = this.searchKeyword;
-			console.log('outerModel', value);
-		},
-	},
+	methods: actionsData,
 });
 
 // typing
 export const Typing = () => ({
 	components: { WkSearch },
-	template:
-		'<wk-search v-model="searchKeyword" @input="onTyping" :initialValue="test" />',
+	template: `
+		<wk-search
+			id="search-input"
+			:initialValue="test"
+			v-model="searchKeyword"
+			@input="onTyping"
+		/>`,
 	data() {
 		return {
 			searchKeyword: 'value test',
-			test: 'test 키워드 입니다.',
+			test: '검색어 입력중',
 		};
 	},
-	methods: {
-		onTyping(e) {
-			const { value } = this.searchKeyword;
-			console.log('outerModel', value);
-		},
-	},
+	methods: actionsData,
 });
-
-// // after
-// export const After = () => ({
-// 	components: { WkSearch },
-// 	template,
-// });
