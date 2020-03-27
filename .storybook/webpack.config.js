@@ -49,20 +49,10 @@ module.exports = async ({ config, mode }) => {
     ],
   });
 
-  config.module.rules.push({
-    test: /\.vue$/,
-    use: [
-      {
-        loader: 'vue-docgen-loader',
-        options: {
-          docgenOptions: config.resolve.alias
-        }
-      }
-    ],
-    enforce: 'post',
-  })
-
-  config.plugins.push(new ForkTsCheckerWebpackPlugin());
+  config.plugins.push(new ForkTsCheckerWebpackPlugin({
+    vue: true,
+    tsconfig: path.resolve(__dirname, '../tsconfig.json')
+  }));
 
   return config;
 };
