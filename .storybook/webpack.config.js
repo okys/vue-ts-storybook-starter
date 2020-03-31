@@ -3,8 +3,8 @@ const path = require('path');
 
 module.exports = async ({ config, mode }) => {
   config.resolve.extensions.push('.ts', '.tsx', '.vue', '.css', '.less', '.scss', '.sass', '.html');
-  
   config.resolve = {
+    ...config.resolve,
     alias: {
       ...config.resolve.alias,
       // '@': path.dirname(path.resolve(__dirname))
