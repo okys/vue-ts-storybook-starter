@@ -12,7 +12,7 @@ module.exports = async ({ config, mode }) => {
     }
   }
 
-  // svg loader 사용을 위한 rule 설정
+  // vue-svg-loader: https://github.com/visualfanatic/vue-svg-loader#readme
   const svgRule = config.module.rules.find(rule => rule.test.test('.svg'));
   svgRule.test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/;
   config.module.rules.push({
