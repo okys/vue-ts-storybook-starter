@@ -4,6 +4,8 @@
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "allowJs": true,
+    "checkJs": false,
     "importHelpers": true,
     "moduleResolution": "node",
     "esModuleInterop": true,

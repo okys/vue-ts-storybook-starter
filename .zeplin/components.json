@@ -1,0 +1,19 @@
+{
+    "plugins": [
+        {
+            "name": "zeplin-cli-connect-plugin-vue"
+        }
+    ],
+    "projects": [
+        "5e670aa9d8982a16df9cbc5e"
+    ],
+    "styleguides": [],
+    "components": [
+        {
+            "path": "src/components/WkButton.vue",
+            "zeplinNames": [
+                "Buttons / Primary / Default"
+            ]
+        }
+    ]
+}
