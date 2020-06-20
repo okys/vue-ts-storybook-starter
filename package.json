@@ -30,7 +30,7 @@
     "@storybook/addon-viewport": "^5.3.14",
     "@storybook/addons": "^5.3.14",
     "@storybook/preset-typescript": "^2.0.0",
-    "@storybook/vue": "^5.3.14",
+    "@storybook/vue": "^5.3.19",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
@@ -56,8 +56,12 @@
     "prettier": "^1.19.1",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
-    "typescript": "~3.7.5",
+    "typescript": "^3.9.5",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11"
+  }, 
+  "resolutions": {
+    "react": "16.13.0",
+    "react-dom": "16.13.0"
   }
 }

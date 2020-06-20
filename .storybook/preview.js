@@ -7,7 +7,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 Vue.use(VueCompositionApi);
 
 // Global Styles
-import '../src/assets/scss/styles.scss';
+import '../src/styles/style.scss';
 
 addParameters({
   viewport: {
